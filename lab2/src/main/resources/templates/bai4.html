@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/bai4/save" method="post">
+    <input name="name">
+    <input name="price">
+    <button>Save</button>
+</form>
+
+<hr>
+
+<ul>
+    <li>?1name: <span th:text="${p1.name}"></span></li>
+    <li>?1price: <span th:text="${p1.price}"></span></li>
+</ul>
+
+<ul>
+    <li>?2name: <span th:text="${p2.name}"></span></li>
+    <li>?2price: <span th:text="${p2.price}"></span></li>
+</ul>
+
+<ul th:block th:each="item : ${items}">
+    <li th:text="${item.name}"></li>
+    <li th:text="${item.price}"></li>
+</ul>
+
+</body>
+</html>

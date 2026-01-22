@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    
+        <h2>🌙 Đăng nhập hệ thống</h2>
+
+        <form th:action="@{/check}" method="post">    
+            <div>
+                <label> UserName </label>
+                <input type="text" name="username">
+            </div>
+            <div>
+                <label> PassWord </label>
+                <input type="password" name="password">
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p th:text="${message}" style="color:crimson"></p>
+</body>
+</html>

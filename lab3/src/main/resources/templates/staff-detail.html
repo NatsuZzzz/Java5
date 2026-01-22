@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Staff Detail</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .card {
+            width: 360px;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .card img {
+            width: 120px;
+            display: block;
+            margin: 0 auto 15px;
+        }
+        .row {
+            border-bottom: 1px solid #eee;
+            padding: 8px 0;
+        }
+        .label {
+            font-weight: bold;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <!-- Avatar -->
+    <img th:src="@{/photos/{img}(img=${staff.photo})}" alt="avatar">
+
+    <!-- Email -->
+    <div class="row">
+        <span class="label">Email:</span>
+        <span th:text="${staff.id}"></span>
+    </div>
+
+    <!-- Fullname -->
+    <div class="row">
+        <span class="label">Họ và tên:</span>
+        <span th:text="${#strings.capitalizeWords(staff.fullname)}"></span>
+    </div>
+
+    <!-- Gender -->
+    <div class="row">
+        <span class="label">Giới tính:</span>
+        <span th:text="${staff.gender ? 'Nam' : 'Nữ'}"></span>
+    </div>
+
+    <!-- Birthday -->
+    <div class="row">
+        <span class="label">Ngày sinh:</span>
+        <span th:text="${#dates.format(staff.birthday, 'dd-MM-yyyy')}"></span>
+    </div>
+
+    <!-- Level -->
+    <div class="row">
+        <span class="label">Cấp bậc:</span>
+        <th:block th:switch="${staff.level}">
+            <span th:case="0">Úy</span>
+            <span th:case="1">Tá</span>
+            <span th:case="2">Tướng</span>
+            <span th:case="*">Chưa có</span>
+        </th:block>
+    </div>
+
+    <!-- Salary -->
+    <div class="row">
+        <span class="label">Salary:</span>
+        $
+        <span th:text="${#numbers.formatDecimal(
+                staff.salary, 0, 'COMMA', 2, 'POINT')}">
+        </span>
+    </div>
+</div>
+
+</body>
+</html>
