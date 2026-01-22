@@ -1,0 +1,392 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fast Food Homepage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#f20d33", // Red from request
+            "secondary": "#ffc107", // Yellow/Orange accent
+            "tertiary": "#ff6d00", // Deeper orange for buttons
+            "background-light": "#ffffff",
+            "background-dark": "#221013",
+          },
+          fontFamily: {
+            "display": ["Be Vietnam Pro", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-[#181112] dark:text-white antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-[#f5f0f1] bg-white/95 backdrop-blur-md dark:border-gray-800 dark:bg-background-dark/95">
+<div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+<div class="flex items-center gap-4">
+<!-- Logo Icon -->
+<div class="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">lunch_dining</span>
+</div>
+<span class="text-2xl font-black tracking-tighter text-primary dark:text-white">CRUNCHY'S</span>
+</div>
+<nav class="hidden md:flex flex-1 justify-center gap-12">
+<a class="text-sm font-bold uppercase tracking-wide text-[#181112] hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors" href="#">Menu</a>
+<a class="text-sm font-bold uppercase tracking-wide text-[#181112] hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors" href="#">Deals</a>
+<a class="text-sm font-bold uppercase tracking-wide text-[#181112] hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors" href="#">About Us</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="relative flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-secondary text-[10px] font-bold text-black">2</span>
+</button>
+<button class="hidden lg:flex h-11 items-center justify-center rounded-full bg-tertiary px-6 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-orange-200 transition-transform hover:scale-105 hover:bg-orange-600 dark:shadow-none">
+          Order Now
+        </button>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<!-- Hero Section -->
+<section class="relative overflow-hidden bg-white dark:bg-background-dark py-12 lg:py-20">
+<div class="absolute -left-20 top-20 size-72 rounded-full bg-secondary/20 blur-[100px]"></div>
+<div class="absolute right-0 top-40 size-96 rounded-full bg-primary/10 blur-[120px]"></div>
+<div class="layout-container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+<div class="relative z-10 flex flex-col gap-6 text-center lg:text-left">
+<div class="inline-flex items-center justify-center self-center rounded-full bg-yellow-100 px-4 py-2 text-sm font-bold text-yellow-800 lg:self-start dark:bg-yellow-900/30 dark:text-yellow-200">
+<span class="material-symbols-outlined mr-2 text-lg">local_fire_department</span>
+              Hot &amp; Spicy New Arrivals
+            </div>
+<h1 class="font-display text-5xl font-black uppercase leading-tight tracking-tight text-[#181112] sm:text-6xl lg:text-7xl dark:text-white">
+              Crispy <span class="text-primary">Chicken</span> <br/>
+<span class="text-tertiary">&amp; Spicy</span> Burgers
+            </h1>
+<p class="text-lg font-medium text-gray-600 dark:text-gray-400 sm:text-xl max-w-lg mx-auto lg:mx-0">
+              Taste the crunch that everyone is talking about. Freshly prepared, hand-breaded, and fried to perfection.
+            </p>
+<div class="mt-4 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
+<button class="h-14 min-w-[180px] rounded-full bg-primary px-8 text-base font-bold text-white shadow-xl shadow-red-200 transition-transform hover:scale-105 hover:shadow-red-300 dark:shadow-none">
+                Start Order
+              </button>
+<button class="flex h-14 items-center gap-2 rounded-full bg-white px-8 text-base font-bold text-[#181112] shadow-sm ring-1 ring-gray-200 transition-colors hover:bg-gray-50 dark:bg-white/10 dark:text-white dark:ring-gray-700 dark:hover:bg-white/20">
+<span class="material-symbols-outlined text-primary">play_circle</span>
+                Watch Video
+              </button>
+</div>
+<!-- Deal Badge -->
+<div class="mt-8 flex justify-center lg:justify-start">
+<div class="relative flex items-center gap-4 rounded-xl bg-secondary p-4 pr-6 text-black shadow-lg transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+<div class="flex size-12 items-center justify-center rounded-full bg-white text-primary">
+<span class="material-symbols-outlined text-2xl font-bold">percent</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold uppercase tracking-wider opacity-80">Limited Time Offer</span>
+<span class="text-xl font-black leading-none">Get 20% OFF Your First Bucket!</span>
+</div>
+</div>
+</div>
+</div>
+<div class="relative z-10 lg:pl-10">
+<div class="relative aspect-square w-full">
+<div class="absolute inset-0 rounded-full bg-gradient-to-tr from-orange-100 to-red-50 dark:from-gray-800 dark:to-gray-900"></div>
+<div class="absolute inset-4 rounded-full border-2 border-dashed border-primary/20 animate-[spin_20s_linear_infinite]"></div>
+<div class="relative flex h-full w-full items-center justify-center p-6 transition-transform hover:scale-105 duration-500">
+<div class="h-full w-full bg-contain bg-center bg-no-repeat drop-shadow-2xl" data-alt="A giant bucket of crispy fried chicken overflowing with pieces next to a large soda cup" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWKJ1eDW_4052zwFcmMuhX_HuB29spubhe4aAqiOdjPdrQzQtBAUrp2H7nVwE83fR5u51wUT1miaAwvRvw86ehFg6D_HH0xjweR15g1KaGLGQrJHR9V7GOgIKnCWwxDnUMKikdXC-ukqrvdbWRdkqbzpU9qudyOUGHk1uiVCt_LPl-XCj5CyksRNuPLQ8SkbGYtgIIPGSnEJRvkk2ye2yU9zBm-mMvACVWZ6p2_chiDyFlcbUPGEYA7Dn8pue7gNSbNh4G_HoJQs8');">
+</div>
+</div>
+<!-- Floating Detail Cards -->
+<div class="absolute bottom-10 left-0 hidden md:flex items-center gap-3 rounded-lg bg-white p-3 shadow-lg dark:bg-gray-800 animate-bounce">
+<div class="size-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined">timer</span>
+</div>
+<div>
+<p class="text-xs text-gray-500 dark:text-gray-400">Delivery</p>
+<p class="text-sm font-bold text-gray-900 dark:text-white">30 Mins</p>
+</div>
+</div>
+<div class="absolute top-10 right-0 hidden md:flex items-center gap-3 rounded-lg bg-white p-3 shadow-lg dark:bg-gray-800 animate-bounce delay-150">
+<div class="size-10 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600">
+<span class="material-symbols-outlined">star</span>
+</div>
+<div>
+<p class="text-xs text-gray-500 dark:text-gray-400">Rating</p>
+<p class="text-sm font-bold text-gray-900 dark:text-white">4.9/5</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Categories Section -->
+<section class="py-16 bg-[#fcfcfc] dark:bg-background-dark border-t border-gray-100 dark:border-gray-800">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-black text-[#181112] dark:text-white">Popular Categories</h2>
+<div class="h-1 w-20 bg-primary mx-auto mt-4 rounded-full"></div>
+</div>
+<div class="grid grid-cols-2 gap-6 md:grid-cols-4">
+<!-- Category 1 -->
+<a class="group relative flex flex-col items-center gap-4 rounded-2xl bg-white p-6 text-center shadow-sm transition-all hover:-translate-y-2 hover:shadow-xl dark:bg-gray-800 dark:hover:bg-gray-700" href="#">
+<div class="absolute right-3 top-3 opacity-0 transition-opacity group-hover:opacity-100">
+<span class="material-symbols-outlined text-primary">arrow_outward</span>
+</div>
+<div class="size-32 overflow-hidden rounded-full bg-orange-50 p-2 group-hover:bg-orange-100 dark:bg-gray-700">
+<div class="h-full w-full rounded-full bg-cover bg-center" data-alt="Top down view of crispy fried chicken drumsticks on a plate" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBVofMPoikeZAhh0yp-q8G6-3Cc0XN27xditd6iq0MO6Wd7eVl_A2X7uebysmeXfsOZK_gEVz6wwwqvCsw-mHavj_yFpQVw0ugPmdQxgH4ZSu0RRVFaPtUPKU4dfPI44FhRX-_dOdHiAXTR_mrh4j2AtsBt8QONNxT2g___m-EkVGIQ0kdIrwA7Cczae4J_0rYna6ii8Ap7EoiEllmqVtLvwW_gLPD8QcpFl12ofpolHY3OEdR-wBIPOrTVsAkoTLIkoLf2jjz4gRQ');"></div>
+</div>
+<h3 class="text-lg font-bold text-[#181112] dark:text-white">Chicken</h3>
+<span class="text-sm text-gray-500 dark:text-gray-400">12 Items</span>
+</a>
+<!-- Category 2 -->
+<a class="group relative flex flex-col items-center gap-4 rounded-2xl bg-white p-6 text-center shadow-sm transition-all hover:-translate-y-2 hover:shadow-xl dark:bg-gray-800 dark:hover:bg-gray-700" href="#">
+<div class="absolute right-3 top-3 opacity-0 transition-opacity group-hover:opacity-100">
+<span class="material-symbols-outlined text-primary">arrow_outward</span>
+</div>
+<div class="size-32 overflow-hidden rounded-full bg-orange-50 p-2 group-hover:bg-orange-100 dark:bg-gray-700">
+<div class="h-full w-full rounded-full bg-cover bg-center" data-alt="Juicy beef burger with cheese lettuce and tomato" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDlxdGbIkbXub2K1x8yfJSKKhmZ-3E2LwbeXmwu4cM__O7YeuzBfejVk-dhT54acQniDPe7yVmfHNO_W_u3LJD6D2bDb0g_CSLHpeQBqxv4psdNFckdAPQ9P5aD7dvfTYIXj2ZQ43knIm4NxdQlGUL-2IcLGkpP1bAyDUQp98aj2xmebM0Ia5dGSjYd9TgdG2H_mq-_84_jE4FDP8VGK1MADFlTEScy-DbxUxxt7KUDXf-V5L6QrA1jH045GGz9ceZI7UaC1hJyPcs');"></div>
+</div>
+<h3 class="text-lg font-bold text-[#181112] dark:text-white">Burgers</h3>
+<span class="text-sm text-gray-500 dark:text-gray-400">8 Items</span>
+</a>
+<!-- Category 3 -->
+<a class="group relative flex flex-col items-center gap-4 rounded-2xl bg-white p-6 text-center shadow-sm transition-all hover:-translate-y-2 hover:shadow-xl dark:bg-gray-800 dark:hover:bg-gray-700" href="#">
+<div class="absolute right-3 top-3 opacity-0 transition-opacity group-hover:opacity-100">
+<span class="material-symbols-outlined text-primary">arrow_outward</span>
+</div>
+<div class="size-32 overflow-hidden rounded-full bg-orange-50 p-2 group-hover:bg-orange-100 dark:bg-gray-700">
+<div class="h-full w-full rounded-full bg-cover bg-center" data-alt="Bowl of french fries and dipping sauces" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBGR-LA_7pDneAHDbeTFEuB55USEJrKzSt3u2c4Yz5u3Qjduf81RK4v1fAfGCYOVzGfFhezlgWNKu6Dm6g8rkJtD3FBz5i2NxkaBCMh0vuGX_oHRIFIH9sAsl6nJyEHiKCLLnp8tOAVY-XelLnLV6rPKiZuV8efm2X_xHHGZpDnv1Ay8ld0MFS7o-UtQhEYrjcUbpTm6Uq3To_JHDjnffJrTik6Nsa2r39Fn0gUDwqCwtpErJ6_phCMtYYOMYm5mJvjB1gUtvfRwRw');"></div>
+</div>
+<h3 class="text-lg font-bold text-[#181112] dark:text-white">Sides</h3>
+<span class="text-sm text-gray-500 dark:text-gray-400">15 Items</span>
+</a>
+<!-- Category 4 -->
+<a class="group relative flex flex-col items-center gap-4 rounded-2xl bg-white p-6 text-center shadow-sm transition-all hover:-translate-y-2 hover:shadow-xl dark:bg-gray-800 dark:hover:bg-gray-700" href="#">
+<div class="absolute right-3 top-3 opacity-0 transition-opacity group-hover:opacity-100">
+<span class="material-symbols-outlined text-primary">arrow_outward</span>
+</div>
+<div class="size-32 overflow-hidden rounded-full bg-orange-50 p-2 group-hover:bg-orange-100 dark:bg-gray-700">
+<div class="h-full w-full rounded-full bg-cover bg-center" data-alt="Glass of cold cola with ice and lime slice" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDMTK3ODu9hPW6m33FK-ZEmSQbAZthqHAZPlG8RvmEriZY38m3uq8pLackuTNcMrvbayqj5Hmn4JiVqSmBnUkLHv1hSVXRTHuemmgCZj--xfoR7LWk2S0bmk0iSlLP6qRzaleUf14m-rX7FReHKzJnU3MtU-6vASyv974RhGgn9L4nRP2dp_B9pM-gACVf8UOfNw1BPj0xbNVctRPI7595MOrGTIERSGdP7En_hQqrQDtzj9dko23rkDOtoZcpACK17tP3B7XZizko');"></div>
+</div>
+<h3 class="text-lg font-bold text-[#181112] dark:text-white">Drinks</h3>
+<span class="text-sm text-gray-500 dark:text-gray-400">10 Items</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Fan Favorites Section -->
+<section class="py-16 bg-white dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+<div>
+<h2 class="text-3xl font-black text-[#181112] dark:text-white">Fan Favorites</h2>
+<p class="mt-2 text-gray-600 dark:text-gray-400">The most loved items from our menu this week.</p>
+</div>
+<a class="flex items-center font-bold text-primary hover:text-red-700 transition-colors" href="#">
+             See Full Menu <span class="material-symbols-outlined ml-1">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+<!-- Product Card 1 -->
+<div class="group relative flex flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition-all hover:shadow-xl dark:border-gray-800 dark:bg-gray-900">
+<div class="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Spicy Zinger Burger with lettuce and mayo on a sesame seed bun" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuACgQp87FTfxHutPmbsfhXkXWg76iVLG3XeMsqZxdjCZsjJMaE5RT0XdzUouhNRRIjekCT1Vx-lrtpijvcsME4mC3Mn-trckXMJt6z87bnPa5CTI3sNQPMvTWn5JCqdx7OUVnFvexVJmToBQ9MRIqQ8gBfdlHDIOzEbWUkWFCt4FW5Cw4Bq0UYeJdTKVsrQtXY61wJbMSRq0ATuz37VEEka55p-htsJTd_5SIJVq3Am5PRknVMh6MEFI-9P-8qgEQoCjdUc_bMpbek');">
+</div>
+<div class="absolute left-3 top-3 rounded-md bg-secondary px-2 py-1 text-xs font-bold uppercase text-black">Bestseller</div>
+<button class="absolute bottom-3 right-3 flex size-10 translate-y-14 items-center justify-center rounded-full bg-white text-primary shadow-md transition-all duration-300 group-hover:translate-y-0 hover:bg-primary hover:text-white dark:bg-gray-800 dark:text-white dark:hover:bg-primary">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="flex flex-1 flex-col p-6">
+<div class="mb-2 flex items-center justify-between">
+<h3 class="text-xl font-bold text-[#181112] dark:text-white">Spicy Zinger Burger</h3>
+<div class="flex items-center gap-1 text-yellow-500">
+<span class="material-symbols-outlined text-sm fill-current">star</span>
+<span class="text-sm font-bold">4.8</span>
+</div>
+</div>
+<p class="mb-4 text-sm text-gray-500 line-clamp-2 dark:text-gray-400">Our signature spicy chicken fillet topped with fresh lettuce and colonel's dressing.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-xl font-black text-primary">$5.99</span>
+<button class="flex h-10 items-center justify-center rounded-lg bg-[#181112] px-4 text-sm font-bold text-white transition-colors hover:bg-primary dark:bg-white dark:text-black dark:hover:bg-gray-200">
+                     Add to Cart
+                   </button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group relative flex flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition-all hover:shadow-xl dark:border-gray-800 dark:bg-gray-900">
+<div class="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Bucket of original recipe fried chicken pieces" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAelloU8qgdFDqQicyQT1sC6HIObR39H4-XG62e2K79erN7zJNTlr1P5mvG-WwOcIx-HN0B7el6eszn9AqMCiqlXn91TEyau5RwQFPZbO4blm28-U4_-gasxDeKpOvWQizryIzMId1viIOwHHI9EumRmKeG6gEvJO10GYcrbCcvktU3dvaH1Flb9ZPXA8kGXFF9Q-LQesuwyBbg4UHVIFNhCGDLNQQdeX70JsJShBMl1g6Au0G479kjXqGJlTylHbqmymd7evy3zIg');">
+</div>
+<button class="absolute bottom-3 right-3 flex size-10 translate-y-14 items-center justify-center rounded-full bg-white text-primary shadow-md transition-all duration-300 group-hover:translate-y-0 hover:bg-primary hover:text-white dark:bg-gray-800 dark:text-white dark:hover:bg-primary">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="flex flex-1 flex-col p-6">
+<div class="mb-2 flex items-center justify-between">
+<h3 class="text-xl font-bold text-[#181112] dark:text-white">Family Bucket (12pc)</h3>
+<div class="flex items-center gap-1 text-yellow-500">
+<span class="material-symbols-outlined text-sm fill-current">star</span>
+<span class="text-sm font-bold">4.9</span>
+</div>
+</div>
+<p class="mb-4 text-sm text-gray-500 line-clamp-2 dark:text-gray-400">Share the love with 12 pieces of our world-famous original recipe chicken.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-xl font-black text-primary">$18.99</span>
+<button class="flex h-10 items-center justify-center rounded-lg bg-[#181112] px-4 text-sm font-bold text-white transition-colors hover:bg-primary dark:bg-white dark:text-black dark:hover:bg-gray-200">
+                     Add to Cart
+                   </button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group relative flex flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition-all hover:shadow-xl dark:border-gray-800 dark:bg-gray-900">
+<div class="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
+<div class="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Fried chicken wings with dipping sauce" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDfpzR87igsslx4Jk56iN8FYz74gmg_YafHXHrIl9D1mUR_4RjtPqt53j1ZtRdZr5AhoDKD1cANPE72w0L4PfOJjTA8HAmhPgb_xoa8WdgCF2QZq83hCbd7K8XF6oS4TC4LT2iW5Pdwqn1QvuSfZYcO9r8d5PKeLz0DyPLLwHRzu99YUvyxlI13f1F3yoV_ELcXD6X7I1DdaYInrkIxdbezUflrpYaiZ-v6908MZN07WWCRKM2qUpleKqFPWSJKi6IDPsJSxnCwX8k');">
+</div>
+<div class="absolute left-3 top-3 rounded-md bg-primary px-2 py-1 text-xs font-bold uppercase text-white">Hot</div>
+<button class="absolute bottom-3 right-3 flex size-10 translate-y-14 items-center justify-center rounded-full bg-white text-primary shadow-md transition-all duration-300 group-hover:translate-y-0 hover:bg-primary hover:text-white dark:bg-gray-800 dark:text-white dark:hover:bg-primary">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="flex flex-1 flex-col p-6">
+<div class="mb-2 flex items-center justify-between">
+<h3 class="text-xl font-bold text-[#181112] dark:text-white">Hot Wings (6pc)</h3>
+<div class="flex items-center gap-1 text-yellow-500">
+<span class="material-symbols-outlined text-sm fill-current">star</span>
+<span class="text-sm font-bold">4.7</span>
+</div>
+</div>
+<p class="mb-4 text-sm text-gray-500 line-clamp-2 dark:text-gray-400">Fiery hot wings for those who love a spicy kick. Served with ranch dip.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-xl font-black text-primary">$7.49</span>
+<button class="flex h-10 items-center justify-center rounded-lg bg-[#181112] px-4 text-sm font-bold text-white transition-colors hover:bg-primary dark:bg-white dark:text-black dark:hover:bg-gray-200">
+                     Add to Cart
+                   </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- App Download Section -->
+<section class="relative overflow-hidden bg-primary py-16 text-white">
+<div class="absolute -right-20 -top-20 size-96 rounded-full bg-white/10 blur-[100px]"></div>
+<div class="absolute -bottom-20 left-20 size-72 rounded-full bg-black/10 blur-[80px]"></div>
+<div class="layout-container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col items-center gap-10 md:flex-row md:justify-between">
+<div class="max-w-xl text-center md:text-left">
+<h2 class="mb-4 text-3xl font-black uppercase md:text-5xl">Order on the go!</h2>
+<p class="mb-8 text-lg font-medium text-white/90">Get exclusive deals, track your order in real-time and enjoy faster checkout with our mobile app.</p>
+<div class="flex flex-wrap justify-center gap-4 md:justify-start">
+<button class="flex h-12 items-center gap-3 rounded-lg bg-black px-5 text-left transition-transform hover:scale-105">
+<div class="text-2xl text-white"><span class="material-symbols-outlined">android</span></div>
+<div class="flex flex-col leading-none">
+<span class="text-[10px] uppercase">Get it on</span>
+<span class="font-bold">Google Play</span>
+</div>
+</button>
+<button class="flex h-12 items-center gap-3 rounded-lg bg-black px-5 text-left transition-transform hover:scale-105">
+<div class="text-2xl text-white"><span class="material-symbols-outlined">ad_units</span></div>
+<div class="flex flex-col leading-none">
+<span class="text-[10px] uppercase">Download on the</span>
+<span class="font-bold">App Store</span>
+</div>
+</button>
+</div>
+</div>
+<div class="relative flex h-64 w-full max-w-xs items-center justify-center md:h-80">
+<!-- Abstract phone mockup shape -->
+<div class="absolute h-full w-48 rotate-12 rounded-[2.5rem] bg-white p-2 shadow-2xl">
+<div class="h-full w-full rounded-[2rem] bg-gray-100 overflow-hidden">
+<div class="h-full w-full bg-cover bg-center" data-alt="Mobile app screen showing a fried chicken ordering interface" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDGxw4XDczDTvOC9IFHqTMnvpzyzLwtmxWOaPQndWdFBNAJGvEoNWyNMYd3DUMKdL2DeiUMUZ83XaZQIb_oV63D2pbjsM2pOcW8hgkcszmNkGTBa5zhLK0j90gdC7XvE2mBtkyAI6AkhlvUYFoEfSYDKnkGv6ETXj8rwbDsAvNUAJkykPkmdMO8waUQx2JtVbLQsYAhjpLmo6ThtZIgCI_y_uPRWgKoC8Hp3Iw9M15HP-837fFXi0vgkG_10yHWgiJZZVwEHhvWbQ0');">
+<div class="absolute inset-0 bg-black/20"></div>
+</div>
+</div>
+</div>
+<div class="absolute h-full w-48 -rotate-6 rounded-[2.5rem] bg-gray-900 p-2 shadow-2xl translate-x-12 translate-y-6">
+<div class="h-full w-full rounded-[2rem] bg-gray-800 overflow-hidden flex flex-col items-center justify-center p-4 text-center">
+<span class="material-symbols-outlined text-4xl text-primary mb-2">fastfood</span>
+<h3 class="text-white font-bold">Fast Delivery</h3>
+<p class="text-gray-400 text-xs mt-1">Track your driver in real-time</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-white pt-16 pb-8 text-[#181112] dark:bg-background-dark dark:text-gray-300 border-t border-gray-100 dark:border-gray-800">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
+<div class="col-span-2 lg:col-span-2">
+<div class="flex items-center gap-2 mb-6">
+<div class="flex size-8 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">lunch_dining</span>
+</div>
+<span class="text-xl font-black tracking-tighter text-primary">CRUNCHY'S</span>
+</div>
+<p class="max-w-xs text-sm text-gray-500 mb-6">The best spot for crispy chicken and spicy burgers. Finger lickin' good moments start here.</p>
+<div class="flex gap-4">
+<a class="flex size-10 items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition-colors dark:bg-gray-800" href="#">
+<!-- Social Icon placeholder -->
+<svg class="h-4 w-4 fill-current" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+</a>
+<a class="flex size-10 items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition-colors dark:bg-gray-800" href="#">
+<svg class="h-4 w-4 fill-current" viewbox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path></svg>
+</a>
+<a class="flex size-10 items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition-colors dark:bg-gray-800" href="#">
+<svg class="h-4 w-4 fill-current" viewbox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.315 1.335 20.646.922 19.857.618c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.584.012 4.849.07 1.17.054 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.265.07 1.646.07 4.85s-.012 3.585-.07 4.849c-.054 1.17-.249 1.805-.415 2.227-.217.562-.477.96-.896 1.382-.419.419-.82.679-1.381.896-.422.164-1.057.36-2.227.413-1.265.057-1.646.07-4.85.07-3.204 0-3.584-.012-4.849-.07-1.17-.054-1.805-.249-2.227-.415-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.265-.07-1.646-.07-4.85 0-3.204.012-3.584.07-4.849.054-1.17.249-1.805.415-2.227.217-.562.477-.96.896-1.382.419-.42.679-.819.896-1.381.164-.422.36-1.057.413-2.227.057-1.265.07-1.646.07-4.85zm0 5.838a4.001 4.001 0 100 8.002 4.001 4.001 0 000-8.002zm0 5.838a1.838 1.838 0 110-3.676 1.838 1.838 0 010 3.676zm5.338-9.87a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path></svg>
+</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-[#181112] dark:text-white uppercase tracking-wider">Menu</h4>
+<a class="text-sm text-gray-500 hover:text-primary transition-colors" href="#">Chicken Buckets</a>
+<a class="text-sm text-gray-500 hover:text-primary transition-colors" href="#">Burgers</a>
+<a class="text-sm text-gray-500 hover:text-primary transition-colors" href="#">Wraps</a>
+<a class="text-sm text-gray-500 hover:text-primary transition-colors" href="#">Hot Wings</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-[#181112] dark:text-white uppercase tracking-wider">Help</h4>
+<a class="text-sm text-gray-500 hover:text-primary transition-colors" href="#">Contact Us</a>
+<a class="text-sm text-gray-500 hover:text-primary transition-colors" href="#">FAQs</a>
+<a class="text-sm text-gray-500 hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-sm text-gray-500 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-[#181112] dark:text-white uppercase tracking-wider">Contact</h4>
+<div class="flex items-center gap-2 text-sm text-gray-500">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span>1234 Foodie Lane,<br/>Flavor Town, FT 56789</span>
+</div>
+<div class="flex items-center gap-2 text-sm text-gray-500">
+<span class="material-symbols-outlined text-sm">call</span>
+<span>+1 (555) 123-4567</span>
+</div>
+</div>
+</div>
+<div class="mt-16 border-t border-gray-100 py-6 text-center text-sm text-gray-400 dark:border-gray-800">
+        © 2023 Crunchy's Fast Food. All rights reserved.
+      </div>
+</div>
+</footer>
+</div>
+</body></html>
